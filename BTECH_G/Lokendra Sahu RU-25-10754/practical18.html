@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create & Manipulate Elements</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    button {
+      padding: 8px 12px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    ul {
+      margin-top: 15px;
+      padding-left: 20px;
+    }
+
+    li {
+      padding: 6px;
+      margin: 4px 0;
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    .highlight {
+      background: #2ecc71;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>DOM Manipulation Demo</h2>
+
+  <button id="add">Add Item</button>
+  <button id="remove">Remove Last Item</button>
+  <button id="modify">Modify First Item</button>
+
+  <ul id="list"></ul>
+
+  <script>
+    const list = document.getElementById("list");
+    const addBtn = document.getElementById("add");
+    const removeBtn = document.getElementById("remove");
+    const modifyBtn = document.getElementById("modify");
+
+    let counter = 1;
+
+    /* ===== Append (Create + Add) ===== */
+    addBtn.addEventListener("click", () => {
+      const li = document.createElement("li");
+      li.textContent = "Item " + counter++;
+      list.appendChild(li);
+    });
+
+    /* ===== Remove ===== */
+    removeBtn.addEventListener("click", () => {
+      if (list.lastChild) {
+        list.removeChild(list.lastChild);
+      }
+    });
+
+    /* ===== Modify ===== */
+    modifyBtn.addEventListener("click", () => {
+      if (list.firstChild) {
+        list.firstChild.textContent = "Modified Item ✨";
+        list.firstChild.classList.toggle("highlight");
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Listeners Demo</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    #box {
+      margin-top: 20px;
+      padding: 30px;
+      width: 250px;
+      text-align: center;
+      background: #3498db;
+      color: white;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    /* Hover effect */
+    .hovered {
+      background: #9b59b6;
+      transform: scale(1.05);
+    }
+
+    /* Active via keyboard */
+    .active {
+      background: #2ecc71;
+    }
+
+    /* Hidden */
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Event Listener Example</h2>
+
+  <button id="enable">Enable Events</button>
+  <button id="disable">Disable Events</button>
+
+  <div id="box" tabindex="0">
+    Hover, Click, or Press a Key 🎯
+  </div>
+
+  <script>
+    const box = document.getElementById("box");
+    const enableBtn = document.getElementById("enable");
+    const disableBtn = document.getElementById("disable");
+
+    /* ===== Event Handlers ===== */
+
+    function handleClick() {
+      box.classList.toggle("hidden");
+    }
+
+    function handleMouseEnter() {
+      box.classList.add("hovered");
+    }
+
+    function handleMouseLeave() {
+      box.classList.remove("hovered");
+    }
+
+    function handleKeyDown(event) {
+      if (event.key === "Enter") {
+        box.classList.toggle("active");
+      }
+    }
+
+    /* ===== Enable Events ===== */
+    function enableEvents() {
+      box.addEventListener("click", handleClick);
+      box.addEventListener("mouseenter", handleMouseEnter);
+      box.addEventListener("mouseleave", handleMouseLeave);
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    /* ===== Disable Events ===== */
+    function disableEvents() {
+      box.removeEventListener("click", handleClick);
+      box.removeEventListener("mouseenter", handleMouseEnter);
+      box.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("keydown", handleKeyDown);
+    }
+
+    enableBtn.addEventListener("click", enableEvents);
+    disableBtn.addEventListener("click", disableEvents);
+
+    // Enable events by default
+    enableEvents();
+  </script>
+
+</body>
+</html>

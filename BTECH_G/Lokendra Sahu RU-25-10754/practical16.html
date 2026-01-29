@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Show / Hide & Toggle Class</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    button {
+      padding: 10px 16px;
+      cursor: pointer;
+    }
+
+    /* Box styles */
+    #box {
+      margin-top: 15px;
+      padding: 20px;
+      background: #3498db;
+      color: white;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    /* Hidden state */
+    .hidden {
+      display: none;
+    }
+
+    /* Active state */
+    .active {
+      background: #2ecc71;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <button id="toggleBtn">Toggle Box</button>
+
+  <div id="box">
+    Hello 👋 I am a toggled element
+  </div>
+
+  <script>
+    const button = document.getElementById("toggleBtn");
+    const box = document.getElementById("box");
+
+    button.addEventListener("click", () => {
+      // Show / Hide
+      box.classList.toggle("hidden");
+
+      // Toggle extra styling
+      box.classList.toggle("active");
+    });
+  </script>
+
+</body>
+</html>
