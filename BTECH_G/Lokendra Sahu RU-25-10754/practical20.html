@@ -1,0 +1,33 @@
+# ====== CONFIG ======
+GITHUB_USERNAME="your-username"
+REPO_NAME="portfolio"
+COMMIT_MESSAGE="Initial portfolio commit"
+
+# ====== INIT GIT ======
+git init
+git add .
+git commit -m "$COMMIT_MESSAGE"
+git branch -M main
+
+# ====== CREATE REMOTE & PUSH ======
+git remote add origin https://github.com/$GITHUB_USERNAME/$REPO_NAME.git
+git push -u origin main
+
+# ====== GITHUB PAGES DEPLOY ======
+# Make sure index.html exists in root
+git checkout -b gh-pages
+git push origin gh-pages
+git checkout main
+
+echo "GitHub Pages URL:"
+echo "https://$GITHUB_USERNAME.github.io/$REPO_NAME/"
+
+# ====== NETLIFY DEPLOY (OPTIONAL) ======
+# Requires Netlify CLI: npm install -g netlify-cli
+# Run only if you want Netlify deployment
+
+# netlify login
+# netlify init
+# netlify deploy --prod
+
+echo "Deployment complete!"

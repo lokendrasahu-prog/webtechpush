@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS Drawing</title>
+<style>
+  body {
+    margin: 0;
+    background: #87ceeb; /* sky */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .scene {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    background: #6ecf68; /* grass */
+    overflow: hidden;
+  }
+
+  /* House body */
+  .house {
+    position: absolute;
+    bottom: 40px;
+    left: 120px;
+    width: 160px;
+    height: 120px;
+    background: #f4c27a;
+  }
+
+  /* Roof */
+  .roof {
+    position: absolute;
+    bottom: 160px;
+    left: 100px;
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 80px solid #b44b3a;
+  }
+
+  /* Door */
+  .door {
+    position: absolute;
+    bottom: 40px;
+    left: 190px;
+    width: 40px;
+    height: 60px;
+    background: #8b5a2b;
+  }
+
+  /* Windows */
+  .window {
+    position: absolute;
+    bottom: 90px;
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+  }
+
+  .window.left {
+    left: 140px;
+  }
+
+  .window.right {
+    left: 230px;
+  }
+
+  /* Sun */
+  .sun {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #ffd700;
+    border-radius: 50%;
+  }
+</style>
+</head>
+<body>
+  <div class="scene">
+    <div class="sun"></div>
+    <div class="roof"></div>
+    <div class="house"></div>
+    <div class="door"></div>
+    <div class="window left"></div>
+    <div class="window right"></div>
+  </div>
+</body>
+</html>
